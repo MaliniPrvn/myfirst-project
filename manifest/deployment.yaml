@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javaproject-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: javaproject
+  template:
+    metadata:
+      labels:
+        app: javaproject
+    spec:
+      containers:
+      - name: javaproject-container
+        image: maliniprvn/javaproject:v1   # <-- your Docker Hub image
+        ports:
+        - containerPort: 8080
